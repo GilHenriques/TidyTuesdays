@@ -36,7 +36,7 @@ df %>% ggplot(aes(x = date_of_introduction, y = deviation)) + geom_point() + sca
 
 
 # Find the points within/outside the bands --------------------------------
-bounds <- ggplot_build(plot)$data[[3]]
+bounds <- ggplot_build(plot)$data[[2]]
 color_df <- tibble(date = bounds$x, above = bounds$ymax > 0, below = bounds$ymin < 0)
 color_df <- color_df %>% mutate(color = paste(above, below))
 color_vec <- as.numeric(factor(color_df$color))
